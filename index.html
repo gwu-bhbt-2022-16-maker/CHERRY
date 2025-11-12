@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    erandi
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CHERRY — Profile</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="profile-container">
+      <!-- Replace the src below with a local image path or an online URL -->
+      <img
+        src=""
+        alt="Profile photo"
+        class="profile-pic"
+        id="profile-pic"
+      />
+      <h1>Erandi Ruwanpathirana</h1>
+      <p class="subtitle">Biomedical Technology Undergraduate</p>
+
+      <div class="controls">
+        <button id="theme-toggle" aria-pressed="false">Dark Mode</button>
+      </div>
     
-</body>
+      <section class="charts">
+        <h2>Example Plots</h2>
+        <div class="chart-row">
+          <div class="chart-card">
+            <canvas id="chart-line" width="600" height="300" aria-label="Line chart" role="img"></canvas>
+          </div>
+          <div class="chart-card">
+            <canvas id="chart-bar" width="600" height="300" aria-label="Bar chart" role="img"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Chart.js from CDN (no build step) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>
-!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Profile</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="profile-container">
-    <img src="d:\2nd yr\6d1491d2-ef5b-4623-af43-7a0888155d59 (1).jfif" alt="My Photo" class="profile-pic" />
-    <h1>Erandi Ruwanpathirana</h1>
-    <p>Biomedical Technology Undergraduate</p>
-  </div>
-  <script
-</body> src=""
-</html>
-<h1>CHERRY</h1>
-<nav>...</nav>
-<button id="theme-toggle">Toggle Dark Mode </button>
