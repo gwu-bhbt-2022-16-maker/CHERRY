@@ -8,9 +8,9 @@
   </head>
   <body>
     <main class="profile-container">
-      <!-- Replace the src below with a local image path or an online URL -->
-      <img src="c:\Users\ERANDHI PC\Downloads\WhatsApp Image 2025-01-26 at 9.52.32 PM.jpeg"
-        alt="Profile photo"
+      <!-- To use your personal photo, copy it into the project at images/profile.jpg -->
+      <img src="images/profile.jpg"
+        alt="Profile photo of Erandi Ruwanpathirana"
         class="profile-pic"
         id="profile-pic"
       />
@@ -22,7 +22,7 @@
       </div>
     
       <section class="charts">
-        <h2>Example Plots</h2>
+    
         <div class="chart-row">
           <div class="chart-card">
             <canvas id="chart-line" width="600" height="300" aria-label="Line chart" role="img"></canvas>
@@ -35,7 +35,7 @@
     </main>
 
     <!-- Chart.js from CDN (no build step) -->
-    <script src=""></script>
-    <script src=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>

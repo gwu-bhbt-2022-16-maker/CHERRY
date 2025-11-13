@@ -5,14 +5,23 @@ const bodyElement = document.body;
 
 function setTheme(isDark) {
     bodyElement.classList.toggle('dark-theme', isDark);
-    themeToggleButton.setAttribute('aria-pressed', String(!!isDark));
+    if (themeToggleButton) {
+        themeToggleButton.setAttribute('aria-pressed', String(!!isDark));
+        // show action for the user (what will happen when they click)
+        themeToggleButton.textContent = isDark ? 'Switch to Light' : 'Switch to Dark';
+    }
 }
 
 // Load persisted preference (if any)
 try {
-    const stored = localStorage.getItem('cherry-theme');
-    if (stored === 'dark') setTheme(true);
-    else if (stored === 'light') setTheme(false);
+        const stored = localStorage.getItem('cherry-theme');
+        if (stored === 'dark') setTheme(true);
+        else if (stored === 'light') setTheme(false);
+        else {
+            // no stored preference: follow system preference
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setTheme(prefersDark);
+        }
 } catch (e) {
     // localStorage may be unavailable in some contexts
     console.warn('localStorage unavailable', e);
@@ -30,8 +39,11 @@ if (themeToggleButton) {
 
         // --- Charts (Chart.js) ---
         function chartColorPalette(isDark) {
+            // Read CSS variables from the body because .dark-theme is applied to the body element
+            const cs = getComputedStyle(document.body);
+            const text = cs.getPropertyValue('--text').trim() || (isDark ? '#e6eef6' : '#0b0b0b');
             return {
-                text: getComputedStyle(document.documentElement).getPropertyValue('--text') || (isDark ? '#e6eef6' : '#0b0b0b'),
+                text,
                 grid: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(2,6,23,0.06)',
                 series1: isDark ? '#6ec1ff' : '#0077cc',
                 series2: isDark ? '#ffa07a' : '#ff6b6b',
